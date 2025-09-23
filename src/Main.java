@@ -12,6 +12,11 @@ public class Main {
         Robot r2 = new Robot("Spark-E", 40.0,500, "Toaster");
 
         // print ut statusen til begge robottene
+        System.out.println("=== Statusrapporter ===");
+        System.out.println(r1.reportStatus()); //reportStatus() returnerer en streng (tekst) som inneholder statusinformasjon.
+        System.out.println(); //Dette er en «tom println». Den skriver bare et linjeskift (en blank linje).
+        System.out.println(r2.reportStatus());
+        System.out.println();
 
         // Sjekk om robotene kan gå til danseklubben
         // Sjekk om robotene kan gå til parken
