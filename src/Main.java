@@ -8,8 +8,8 @@ public class Main {
         // med botType "B-Bot" og "Toaster"
         // med forskjellig batterinivå
         // med forskjellig avstand til parken
-        Robot r1 = new Robot("Boon", 80,1750, "B-Bot");
-        Robot r2 = new Robot("Sumo", 35,500, "Toaster" );
+        Robot r1 = new Robot("Dancatron 4000", 80.0,1500, "B-Bot");
+        Robot r2 = new Robot("Spark-E", 40.0,500, "Toaster");
 
         // print ut statusen til begge robottene
 
