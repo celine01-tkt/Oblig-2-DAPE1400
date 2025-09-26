@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class Robot {
     // gi robotten 4 attributter: name, batteryLevel, distancetoPark og botType
     private String name;
@@ -27,20 +29,33 @@ public class Robot {
     //Sjekk om roboten kan gå til parken
     public boolean canWalkToThePark(World world) {
         // Metode for å sjekke om roboten kan gå til parken basert på omgivelsene
-
         // System.out.println(navn + " sjekker om det er mulig å gå til parken...");
+        System.out.println(name + ": sjekker om det er mulig å gå til parken...");
 
         // Sjekk om det regner
         if (world.getIsRaining()) {
             // skriv ut hvorfor boten ikke kan gå i parken med System.out.println
-            return false;
+            System.out.println(name + ": Nei,det regner.");
+            return false; //hvis det regner, kan roboten ikke gå.
         }
 
-        // Sjekk om det er søndag. Kan bare gå i parken på søndager.
+        // Sjekk om det er søndag. Kan bare gå i parken på søndager. ! betyr ikke
+        if (!world.isSunday()) {
+            System.out.println(name + ": Nei, det er ikke søndag.");
+            return false; //roboten kan bare gå til parken på søndag.
+        }
 
         // Sjekk batterinivå. En bot trenger 1% batterinivå per 100 meter for å gå til parken.
+        double neededBattery = distancetoPark / 100.0; //1% per 100 meter
+        if (batteryLevel < neededBattery) {
+            System.out.println(name + ": Nei, har for lite batteri. Trenger "
+            + String.format("%.1f", neededBattery) + "% har "
+            + String.format("%.1f", batteryLevel) + "%.");
+            return false; //hvis den ikke har nok batteri ->returnerer false.
+        }
 
-        return true;
+        System.out.println(name + ": Ja, roboten kan gå til parken!");
+        return true; //hvis alle sjekker er ok ->den kan gå til parken.
     }
 
 
