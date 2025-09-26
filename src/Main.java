@@ -18,7 +18,13 @@ public class Main {
         System.out.println(r2.reportStatus());
         System.out.println();
 
-        // Sjekk om robotene kan gå til danseklubben
+
         // Sjekk om robotene kan gå til parken
+        System.out.println("=== Kan robotene går til parken? ===");
+        r1.canWalkToThePark(todaysWorld); //todaysWorld (objektet som holder på hvilken dag det er og om det regner).
+        r2.canWalkToThePark(todaysWorld);
+        System.out.println();
+
+        // Sjekk om robotene kan gå til danseklubben
     }
 }
