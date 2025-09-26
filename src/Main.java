@@ -20,11 +20,14 @@ public class Main {
 
 
         // Sjekk om robotene kan gå til parken
-        System.out.println("=== Kan robotene går til parken? ===");
+        System.out.println("=== Kan robotene gå til parken? ===");
         r1.canWalkToThePark(todaysWorld); //todaysWorld (objektet som holder på hvilken dag det er og om det regner).
         r2.canWalkToThePark(todaysWorld);
         System.out.println();
 
         // Sjekk om robotene kan gå til danseklubben
+        System.out.println("=== Kan robotene gå til/være med på danseklubben? ===");
+        r1.canWalkToThePark(todaysWorld);
+        r2.canWalkToThePark(todaysWorld);
     }
 }

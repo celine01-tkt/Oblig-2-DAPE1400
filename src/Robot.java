@@ -60,8 +60,34 @@ public class Robot {
 
 
     // lag en metode som heter canDanceAtClub, som sjekker om boten kan være med på danseklubben
-    // bottypen må være av type B-Bot (hint .equals)
-    // En bot trenger minimum 50% batterikapasitet for å være med
-    // Det kan ikke være mandag. Da er danseklubben stengt.
+    public boolean canDanceAtClub (World world) {
+        System.out.println(name + ": Sjekker om boten kan være med på danseklubben...");
+
+        // bottypen må være av type B-Bot (hint .equals)
+        if (!"B-Bot".equals(botType)) {
+            System.out.println(name + ": Nei, jeg er ikke en B-Bot.");
+            return false;
+        }
+
+        // En bot trenger minimum 50% batterikapasitet for å være med
+        if (batteryLevel < 50.0){
+            System.out.println(name + ": Nei, for lite batteri. Har bare "
+            + String.format("%.1f", batteryLevel) + "%.");
+            return false;
+        }
+
+        // Det kan ikke være mandag. Da er danseklubben stengt.
+        if (world.getDay() % 7 == 1) {
+            System.out.println(name + ": Nei, klubben er stengt på mandager."); //Vi bruker world.getDay() % 7 == 1 fordi dag 1, 8, 15, … skal være mandag.
+            return false; //klubben er stengt på mandager (dag % 7 == 1).
+        }
+
+        System.out.println(name + ": Ja, boten kan være med på danseklubben.");
+        return true; // Hvis alle tidligere sjekker har gått bra (roboten er en B-Bot, har minst 50 % batteri og det er ikke mandag), så skriver den en positiv melding og returnerer true.
+
+    }
+
+
+
 }
 
